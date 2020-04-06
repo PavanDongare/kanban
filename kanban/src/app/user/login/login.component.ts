@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AngularFireAuth) { }
 
   ngOnInit(): void {
   }

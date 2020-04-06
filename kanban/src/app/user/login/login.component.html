@@ -1,1 +1,11 @@
-<p>login works!</p>
+<main>
+
+  <div *ngIf="!(authService.authState |async)">
+    <button mat-raised-button appGoogleSignin >
+      Auth
+    </button>
+  </div>
+</main>
+
+
+
