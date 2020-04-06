@@ -1,7 +1,26 @@
-<mat-sidenav-container  class="sidenav-container" >
-    <mat-sidenav>
 
-    </mat-sidenav>
+<mat-sidenav-container  class="sidenav-container" >
+    <mat-sidenav #drawer class='sidenav' fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation' "
+      [mode]= "(isHandset$ | async)? 'over': 'side' "
+      [opened]='true'
+      >
+
+    <!-- oepned attr is necessary -->
+
+    <mat-toolbar>
+        <span>Menu</span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/"> Home </a>
+      <a mat-list-item routerLink="/login"> Login </a>
+      <a mat-list-item routerLink="/kanban"> Kanban </a>
+      <a mat-list-item routerLink="/customers"> SSR </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
 
     <mat-sidenav-content>
       <ng-content></ng-content>
