@@ -1,1 +1,8 @@
-<p>shell works!</p>
+<mat-sidenav-container>
+    <mat-sidenav mode="over" align="start" opened>
+        Sidenav content
+        <ng-content></ng-content>
+    </mat-sidenav>
+    <!-- Body -->
+    <ng-content></ng-content>
+</mat-sidenav-container>
