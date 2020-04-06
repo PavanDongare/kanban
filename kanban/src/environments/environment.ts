@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase : {
-    apiKey: "AIzaSyCpUqKynt7Itwb2CIHsM-BS0u4au_Eq4AE",
-    authDomain: "kanban-pavan.firebaseapp.com",
-    databaseURL: "https://kanban-pavan.firebaseio.com",
-    projectId: "kanban-pavan",
-    storageBucket: "kanban-pavan.appspot.com",
-    messagingSenderId: "1041771177862",
-    appId: "1:1041771177862:web:a2ab81c6f5ab0cefe76e07",
-    measurementId: "G-4333HC9VK3"
+    apiKey: "AIzaSyAaH8B5wpnFDuc65l0lW0q-0kFFCunlXu4",
+    authDomain: "kanban-100.firebaseapp.com",
+    databaseURL: "https://kanban-100.firebaseio.com",
+    projectId: "kanban-100",
+    storageBucket: "kanban-100.appspot.com",
+    messagingSenderId: "254488343706",
+    appId: "1:254488343706:web:3449d58de26cbb889a9b23",
+    measurementId: "G-LRSE2B9JS5"
   },
 };
 
