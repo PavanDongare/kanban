@@ -1,8 +1,10 @@
-<mat-sidenav-container>
-    <mat-sidenav mode="over" align="start" opened>
-        Sidenav content
-        <ng-content></ng-content>
+<mat-sidenav-container  class="sidenav-container" >
+    <mat-sidenav>
+
     </mat-sidenav>
-    <!-- Body -->
-    <ng-content></ng-content>
+
+    <mat-sidenav-content>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+
 </mat-sidenav-container>
