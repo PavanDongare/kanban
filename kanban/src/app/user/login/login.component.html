@@ -8,10 +8,10 @@
 
   <div *ngIf="authService.authState | async as user" >
     <div> {{ user | json }} </div>
-      <button mat-stoked-button (click)=" authService.signOut();" > Logout  </button>
+      <button mat-raised-button (click)=" authService.signOut();" > Logout  </button>
   </div>
 
 </main>
 
-
+ 
 
