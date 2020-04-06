@@ -16,27 +16,37 @@
     </mat-sidenav>
 <!-------------------------------------------------------------------------------->
     <mat-sidenav-content>
-      <mat-toolbar>
-             <button mat-icon-button
-               type="button"
-               aria-label="Toggle Sidnav"
-               mat-icon-button
-               (click)="drawer.toggle()"
-               *ngIf="isHandset$ | async"
-             >
-                    <mat-icon arial-label="Side nav"> menu  </mat-icon>
-             </button>
+                      <mat-toolbar>
+                             <button mat-icon-button
+                               type="button"
+                               aria-label="Toggle Sidnav"
+                               mat-icon-button
+                               (click)="drawer.toggle()"
+                               *ngIf="isHandset$ | async"
+                             >
+                                    <mat-icon arial-label="Side nav"> menu  </mat-icon>
+                             </button>
 
-             <span class="logo" routerLink="/"> KanbanBoard  </span>
-             <span class="fill-space"></span>
-             <div *ngIf="!(isHandset$ | async)"  >
-                     <a mat-button routerLink="/login"  (click)="drawer.close()"> Login </a>
-                     <a mat-button routerLink="/kanban"  (click)="drawer.close()"> Kanban </a>
-                     <a mat-button routerLink="/customers"  (click)="drawer.close()"> SSR </a>
-             </div>
-      </mat-toolbar>
+                             <span class="logo" routerLink="/"> 📓 To Do  </span>
+                             <span class="fill-space"></span>
+                             <div *ngIf="!(isHandset$ | async)"  >
+                                     <a mat-button routerLink="/login"  (click)="drawer.close()"> Login </a>
+                                     <a mat-button routerLink="/kanban"  (click)="drawer.close()"> Kanban </a>
+                                     <a mat-button routerLink="/customers"  (click)="drawer.close()"> SSR </a>
+                             </div>
 
-      <ng-content></ng-content>
+                             <button mat-icon-button [matMenuTriggerFor]="subMenu">
+                                    <mat-icon> more_vert </mat-icon>
+                             </button>
+
+                             <mat-menu #subMenu="matMenu">
+                                    <a mat-menu-item> 💾     github                </a>
+                                    <a mat-menu-item>      insta               </a>
+                             </mat-menu>
+
+                      </mat-toolbar>
+
+                      <ng-content></ng-content>
 
     </mat-sidenav-content>
 <!-------------------------------------------------------------------------------->
