@@ -14,7 +14,7 @@ export class EmailLoginComponent implements OnInit {
 
   form : FormGroup;
   type : 'login' | 'signup' | 'reset' = 'signup' ;
-  loading : false;
+  loading = false;
 
   serverMessage = ' auth fail';
 
@@ -45,7 +45,16 @@ export class EmailLoginComponent implements OnInit {
   }
 
   async onSubmit(){
-
+        this.loading = true;
+        const email = this.email.value; // we can access this.email instead of this.form.email because of the getter method
+        const password =  this.password.value ;
+        try {
+            if (this.isLoggIn) { await this.afAuth.signInWithEmailAndPassword(email,password);}
+            if(this.isSignUp) { await this.afAuth.createUserWithEmailAndPassword(email,password);}
+            if(this.isPasswordReset) { await this.afAuth.sendPasswordResetEmail(email);}
+        }
+        catch(err) {  this.serverMessage = err; }
+        this.loading = false;
   }
 
 
