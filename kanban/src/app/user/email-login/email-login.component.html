@@ -1,0 +1,115 @@
+  <!-- 3 field: email, pssword, confirmation
+  3 forms: login , sigup , reset
+  1st form : 1,2 field
+  2nd form : 1,2,3
+  3rd form : 1
+  1s field: all 3 forms
+  2nd field : login , signup
+  3rd field only signup -->
+
+<mat-card>
+
+
+  <div *ngIf="isSignUp">
+    <h3>create account </h3>
+    <button mat-stroked-button (click)="changeType('login')">
+        already user ?
+    </button>
+  </div>
+
+  <div *ngIf="isLoggIn">
+    <h3> log in to your account  </h3>
+    <button mat-stroked-button (click)="changeType('signup')">
+       new user ?
+   </button>
+  </div>
+
+<div *ngIf="isPasswordReset">
+    <h3> rest the password </h3>
+    <button mat-stroked-button (click)="changeType('login')">
+      login to existing?
+   </button>
+</div>
+
+
+  <form [formGroup]= "form" (ngSubmit)="onSubmit()" >
+      <mat-form-field  [color]=" email.valid && 'accent' ">
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="Email"
+            autocomplete="off"
+
+          />
+
+          <mat-error *ngIf=" email.invalid && email.dirty " >
+               wrong email address
+          </mat-error>
+
+      </mat-form-field>
+
+      <!--password field  -->
+      <mat-form-field  [color]=" password.valid && 'accent' "   *ngIf="!isPasswordReset">
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          autocomplete="off"
+
+        />
+        <mat-error *ngIf=" password.dirty && password.invalid " >
+             invalid password
+        </mat-error>
+    </mat-form-field>
+
+
+    <!--confirm password field  -->
+      <mat-form-field  [color]=" isPasswordMatched ? 'accent' : 'warn' "   *ngIf="isSignUp">
+          <input
+            matInput
+            formControlName="passwordConfirm"
+            type="password"
+            placeholder="Confirm password"
+            autocomplete="off"
+
+          />
+          <mat-error *ngIf=" passwordConfirm.dirty && !isPasswordMatched " >
+               password does not match
+          </mat-error>
+    </mat-form-field>
+
+
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit"
+    [disabled]='form.invalid || !isPasswordMatched || loading'
+  >
+    Submit
+  </button>
+
+
+  <button
+    *ngIf="isPasswordReset"
+    mat-stroked-button
+    type="button"
+    [disabled]= "loading"
+    >
+       send password reset mail
+  </button>
+
+
+
+  </form>
+
+
+</mat-card>
+
+<!-- 
+create form group in react
+set form handler submit function in html & ts
+tie the formgroup to form in html
+add formcontrols to ts
+tie form controls to html -->

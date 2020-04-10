@@ -6,6 +6,10 @@
     </button>
   </div>
 
+
+  <app-email-login> </app-email-login>
+
+
   <div *ngIf="authService.authState | async as user" >
     <div> {{ user | json }} </div>
       <button mat-raised-button (click)=" authService.signOut();" > Logout  </button>
@@ -13,5 +17,5 @@
 
 </main>
 
- 
+
 
