@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     every path it tries, if failed , show snack and navigate to home
   */
 
-  async canActivate(
+  async canActivate( 
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean>  {
 
