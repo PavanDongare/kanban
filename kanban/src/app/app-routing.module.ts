@@ -11,12 +11,13 @@ however , gaurd can also show error msg like our authgaurd here
 
 /*
      where do non matching paths go?
-     ans: 
+     ans:
 */
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'login', loadChildren: () => import('./user/user.module').then(m => m.UserModule ) }
+  { path: '', component: HomeComponent},
+  { path: 'login', loadChildren: () => import('./user/user.module').then(m => m.UserModule ) },
+  { path: 'kanban', loadChildren: () => import('./kanban/kanban.module').then(m => m.KanbanModule ), canActivate: [AuthGuard] },
 ];
 
 @NgModule({
