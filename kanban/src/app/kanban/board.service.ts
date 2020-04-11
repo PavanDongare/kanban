@@ -51,7 +51,7 @@ export class BoardService {
               return this.db
                     .collection<Board>
                     ( 'board', ref =>
-                      ref.where('uid','==',user.uid).orderBy('priority')
+                      ref.orderBy('priority')
                     ).valueChanges({idField:'id'});
             }else {
               return [];
