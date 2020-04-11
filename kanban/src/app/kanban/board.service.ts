@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth/auth';
-import { AngularFirestore } from '@angular/fire/firestore/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Board, Task } from './board.model';
 import * as firebase from 'firebase';
 import { switchMap } from 'rxjs/operators';

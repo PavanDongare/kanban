@@ -16,14 +16,16 @@ export class AuthGuard implements CanActivate {
     every path it tries, if failed , show snack and navigate to home
   */
 
-  async canActivate( 
+  async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean>  {
 
       const user = await this.afAuth.currentUser;
       const isLoggedIn = !!user; // user is null or object. !! makes it boolean
 
-      this.snack.authErrorBox();
+      if(!isLoggedIn) {
+          this.snack.authErrorBox();
+      }
 
       return isLoggedIn;
   }
