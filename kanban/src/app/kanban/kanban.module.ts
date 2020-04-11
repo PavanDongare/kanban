@@ -8,13 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BoardListComponent } from './board-list/board-list.component';
 /*
  when do we need feature module? mainly if lazy loaded component
  why shared module? it is used in all, so add to all feature modules
 
 */
 @NgModule({
-  declarations: [],
+  declarations: [BoardListComponent],
   imports: [
     CommonModule,
     KanbanRoutingModule,
